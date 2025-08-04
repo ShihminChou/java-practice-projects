@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add User</title>
+</head>
+<body>
+<h2>Add User</h2>
+
+<!-- 注意這裡要用 th:object 綁定表單資料模型 -->
+<form th:action="@{/user/add}" th:object="${user}" method="post">
+    Name: <input th:field="*{user}"/> <span th:errors="*{user}"></span><br/>
+    Password: <input type="password" th:field="*{password}"/> <span th:errors="*{password}"></span><br/>
+    Age: <input th:field="*{age}"/> <span th:errors="*{age}"></span><br/>
+    <input type="submit" value="Save"/>
+</form>
+
+</body>
+</html>
